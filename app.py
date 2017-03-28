@@ -18,7 +18,7 @@ def homepage():
 
 @app.route('/login/twitter')
 def twitter_login():
-    if g.user.screen_name == session['screen_name']:
+    if 'screen_name' in session:
         return redirect(url_for('profile'))
     request_token = getRequestToken()
     session['request_token'] = request_token
